@@ -5,8 +5,9 @@ file_input = open('code_main_test.py', 'r')
 for line in file_input:
     line = line.replace('\n', '')
     if line.startswith("'''") and comment_block is False:
-        comment_count += 1
-        comment_block = True
+        if _is_comment(line):
+            comment_count += 1
+            comment_block = True
     elif line[-1] is "'" and line[-2] is "'" and line[-3] is "'" and comment_block is True:
         comment_block = False
         comment_count += 1
