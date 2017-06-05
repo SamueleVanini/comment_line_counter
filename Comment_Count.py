@@ -1,6 +1,7 @@
 """
 Comment_Controll -> modulo per il controllo del commento in una determinata riga
 """
+import sys
 from Components import Comment_Controll
 
 
@@ -29,10 +30,15 @@ def main(file_input):
             elif comment_block is True:
                 if Comment_Controll._is_comment(line):
                     comment_count += 1
-            elif line.startswith('#'):
+            elif Comment_Controll._is_canc_comment(line) and comment_block is False:
                 if Comment_Controll._is_comment(line):
                     comment_count += 1
         except IndexError:
             pass
-    file_input.close()
-    return (comment_count/line_count)*100
+    file.close()
+    print(line_count)
+    print(comment_count)
+    print((comment_count/line_count)*100)
+
+if __name__ == "__main__":
+    main(sys.argv[1])
