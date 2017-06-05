@@ -8,5 +8,9 @@ def _is_comment(line):
     :param line: linea da controllare
     :return True/False: indicazione se la linea è commento
     '''
+    code_counter = 0
     CODE_WORD = keyword.kwlist
-    if CODE_WORD in line:
+    for word in line:
+        if word is CODE_WORD:
+            code_counter += 1
+    return code_counter
