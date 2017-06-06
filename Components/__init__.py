@@ -1,4 +1,4 @@
 """__init__.py"""
-from Components import Comment_Controll
+from Components import Comment_Control
 
-__all__ = ['Comment_Controll']
+__all__ = ['Comment_Control']
