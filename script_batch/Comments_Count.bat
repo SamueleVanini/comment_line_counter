@@ -1,5 +1,10 @@
 @ECHO OFF
-python C:\Users\SVanini\PycharmProjects\comment_line_counter\Comments_Count.py %1 > Output
+setlocal enableDelayedExpansion
+set @path=%~dp0
+set @filepy=Comments_Count.py
+set @path=%@path:\script_batch=%
+set @path=%@path%%@filepy%
+python %@path% %1 > Output
 SET /p MYVAR=<Output
 ECHO %MYVAR%
 DEL Output
