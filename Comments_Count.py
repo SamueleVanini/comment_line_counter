@@ -16,9 +16,8 @@ def main(file_input):
     file = open(file_input, 'r')
     result_list = file_reader(file)
     file.close()
-    print("total lines: " + str(result_list[0]))
-    print("total comments: " + str(result_list[1]))
-    print("comments perc: " + str((result_list[1]/result_list[0])*100))
+    print(result_list[1]/result_list[0]*100)
+    # return(result_list[1]/result_list[0]*100)
 
 
 def file_reader(file):
@@ -54,7 +53,7 @@ def file_reader(file):
                     comment_count += 1
                     function_start = False
             elif function_start:
-                print("Ti sei dimenticato di commentare una funzione/metodo!!")
+                # print("Ti sei dimenticato di commentare una funzione/metodo!!")
                 function_start = False
         except IndexError:
             pass
