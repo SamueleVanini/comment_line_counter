@@ -12,7 +12,7 @@ def _cut_useles(files):
     file_list = []
     files = files.split('\n')
     for i in range(len(files)):
-        if not files[i].startswith('?'):
+        if not files[i].startswith('?') and not files[i].startswith(' ') and files[i].endswith('.py'):
             files[i] = files[i][1:]
             files[i] = files[i].strip(' ')
             file_list.append(files[i])
@@ -22,7 +22,6 @@ def _cut_useles(files):
 p = os.popen('git status --porcelain')
 files = p.read()
 files = _cut_useles(files)
-files.remove('')
 for i in range(len(files)):
     file = files[i]
     files[i] = os.path.abspath(files[i])
