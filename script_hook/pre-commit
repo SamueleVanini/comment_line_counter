@@ -14,7 +14,7 @@ def _cut_useles(files):
     return file_list
 
 
-p = os.popen('git status -s')
+p = os.popen('git status --porcelain')
 files = p.read()
 files = _cut_useles(files)
 files.remove('')
