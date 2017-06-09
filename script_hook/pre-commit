@@ -4,6 +4,11 @@ from subprocess import check_output
 
 
 def _cut_useles(files):
+    """
+    Cut the useles part of a raw and take only the file to commit
+    :param files: list of files to commit or not
+    :return file_list: list with only file to commit
+    """
     file_list = []
     files = files.split('\n')
     for i in range(len(files)):
