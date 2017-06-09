@@ -22,7 +22,11 @@ for i in range(len(files)):
     file = files[i]
     files[i] = os.path.abspath(files[i])
     files[i] = files[i].replace('\\', '/')
-    str_comment_perc = check_output(["Comments_Count.bat", files[i]])
+    print(file)
+    if i == (len(files)-1):
+        str_comment_perc = check_output(["Comments_Count.bat", files[i], "DEL"])
+    else:
+        str_comment_perc = check_output(["Comments_Count.bat", files[i], "0"])
     perc = str_comment_perc.decode()
     perc = perc.strip('\n\r')
     if float(perc) < 30:
