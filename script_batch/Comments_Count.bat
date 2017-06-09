@@ -7,4 +7,5 @@ set @path=%@path%%@filepy%
 python %@path% %1 > Output
 SET /p MYVAR=<Output
 ECHO %MYVAR%
-DEL Output
+ECHO. >Output
+if %2=="DEL" DEL Output
